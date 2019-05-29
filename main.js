@@ -669,22 +669,25 @@ adapter.on('stateChange', function (id, state) {
                     if (state.val === 1) {
                         adapter.log.debug(fctNameId + ',  start mower');
                         startMower();
+						updateStatus();
                     } else if (state.val === 2) {
                         adapter.log.debug(fctNameId + ',  stop mower');
 
                         stoptMower();
+						updateStatus();
                     } else if (state.val === 3) {
                         adapter.log.debug(fctNameId + ',  park mower');
 
                         parkMower();
+						updateStatus();
                     } else if (state.val === 9) {
-                        if(mScheduleTime === 0) {
+                        //if(mScheduleTime === 0) {
                             adapter.log.debug(fctNameId + ', status mower');
 
                             updateStatus();
-                        } else {
-                            adapter.log.debug(fctNameId + ', execute status mower impossible, scheduler is running.');
-                        }
+                        //} else {
+                        //    adapter.log.debug(fctNameId + ', execute status mower impossible, scheduler is running.');
+                        //}
 
                     } else if (state.val === 77) {
                         adapter.log.debug(fctNameId + ', toggle rain detected');
